@@ -1,4 +1,4 @@
-﻿using Spectre.Console;
+﻿using MathGame.Shared;
 
 namespace MathGame;
 
@@ -15,7 +15,6 @@ public class UserInterface
 
     public void Welcome()
     {
-        AnsiConsole.MarkupLine("Welcome to the interplanetary Maths Quiz!");
+        ConsoleExtensions.WriteLineWordByWord("Hello");
     }
-    
 }
