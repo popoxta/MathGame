@@ -1,9 +1,7 @@
 ﻿namespace MathGame;
 
-public class Program(int num)
+public class Program
 {
-    public int Num = num;
-
     public static void Main()
     {
         Console.WriteLine("Welcome!");
