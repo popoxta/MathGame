@@ -1,10 +1,9 @@
 ﻿namespace MathGame;
 
-public class Program
+public static class Program
 {
     public static void Main()
     {
-        var userInterface = new UserInterface();
-        userInterface.Welcome();
+        new UserInterface().MainMenu();
     }
 }
