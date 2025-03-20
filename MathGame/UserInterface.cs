@@ -21,7 +21,7 @@ public class UserInterface
 
     private static GameOptions GetGameOption() =>
         AnsiConsole.Prompt(new SelectionPrompt<GameOptions>()
-            .Title("[cyan]Choose a [red]game option[/red][/]")
+            .Title("[wheat1]Choose a [lightcoral][bold]game option[/][/][/]")
             .AddChoices(Enum.GetValues<GameOptions>()));
 
     public void MainMenu()
@@ -37,7 +37,8 @@ public class UserInterface
                 case GameOptions.Multiplication:
                 case GameOptions.Division:
                 case GameOptions.Exit:
-                    break;
+                    AnsiConsole.WriteLine("[lightcoral]Goodbye![/]");
+                    return;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
