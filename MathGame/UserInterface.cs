@@ -14,19 +14,28 @@ public class UserInterface
         Exit
     }
 
-    private static void Welcome()
+    private static async Task Welcome()
     {
-        ConsoleExtensions.WriteLineWordByWord("Hello");
+        await ConsoleExtensions.WriteLineWordByWord("Hello!");
+        await ConsoleExtensions.WriteLineWordByWord("Welcome to the Interplanetary Math Game!", 80);
     }
 
     private static GameOptions GetGameOption() =>
         AnsiConsole.Prompt(new SelectionPrompt<GameOptions>()
-            .Title("[wheat1]Choose a [lightcoral][bold]game option[/][/][/]")
+            .Title("[wheat1]Please choose a [lightcoral][bold]game option[/][/][/]")
             .AddChoices(Enum.GetValues<GameOptions>()));
 
-    public void MainMenu()
+    private static void PressEnterToContinue()
     {
-        Welcome();
+        AnsiConsole.MarkupLine("[lightskyblue1]Press any key to continue...[/]");
+        Console.ReadKey();
+        Console.Clear();
+    }
+
+    public async Task MainMenu()
+    {
+        await Welcome();
+        PressEnterToContinue();
 
         while (true)
         {
@@ -37,7 +46,7 @@ public class UserInterface
                 case GameOptions.Multiplication:
                 case GameOptions.Division:
                 case GameOptions.Exit:
-                    AnsiConsole.WriteLine("[lightcoral]Goodbye![/]");
+                    AnsiConsole.MarkupLine("[lightcoral]Goodbye![/]");
                     return;
                 default:
                     throw new ArgumentOutOfRangeException();

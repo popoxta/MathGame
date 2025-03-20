@@ -2,8 +2,8 @@
 
 public static class Program
 {
-    public static void Main()
+    public static async Task Main()
     {
-        new UserInterface().MainMenu();
+        await new UserInterface().MainMenu();
     }
 }
